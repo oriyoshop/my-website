@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Mental Arithmetic — Multilang</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="light">
+
+<button class="theme-toggle">Тема</button>
+
+<div class="app">
+  <!-- Language selector -->
+  <div class="lang-select">
+    <label for="lang">Язык / Language</label>
+    <select id="lang">
+      <option value="ru" selected>Русский</option>
+      <option value="tg">Тоҷикӣ</option>
+      <option value="en">English</option>
+      <option value="uz">O‘zbek</option>
+    </select>
+  </div>
+
+  <h1 id="title">Ментальная арифметика</h1>
+  <div class="sub" id="subtitle">Тренируйся быстро решать примеры. Выбери режим, нажми «Старт» и вперед!</div>
+
+  <div class="grid panel">
+    <div class="controls">
+      <div class="control">
+        <label id="lblDiff" for="difficulty">Сложность</label>
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+
+      <div class="control">
+        <label id="lblOps">Операции</label>
+        <div class="ops">
+          <label class="chip"><input type="checkbox" value="+" checked> +</label>
+          <label class="chip"><input type="checkbox" value="-" checked> −</label>
+          <label class="chip"><input type="checkbox" value="*" checked> ×</label>
+          <label class="chip"><input type="checkbox" value="/" checked> ÷</label>
+        </div>
+      </div>
+
+      <div class="control">
+        <label id="lblDur" for="duration">Длительность</label>
+        <select id="duration">
+          <option value="30">30</option>
+          <option value="60" selected>60</option>
+          <option value="120">120</option>
+        </select>
+      </div>
+
+      <div class="control">
+        <label id="lblNeg" for="negatives">Отрицательные</label>
+        <select id="negatives">
+          <option value="no" selected>Нет</option>
+          <option value="yes">Да</option>
+        </select>
+      </div>
+
+      <div class="control"><label>&nbsp;</label><button id="startBtn" class="btn primary">Старт</button></div>
+      <div class="control"><label>&nbsp;</label><button id="stopBtn" class="btn danger" disabled>Стоп</button></div>
+    </div>
+
+    <div class="timer-row">
+      <div class="timer"><div id="bar" class="bar"></div></div>
+      <div id="timeText" class="timer-text">00:00</div>
+    </div>
+  </div>
+
+  <div class="grid panel game">
+    <div id="equation" class="equation muted">Нажмите «Старт»</div>
+    <div class="answer-row">
+      <input id="answer" type="number" placeholder="Ответ" disabled />
+      <button id="submitBtn" class="btn primary" disabled>Ответ ↵</button>
+      <button id="skipBtn" class="btn ghost" disabled>Пропустить</button>
+    </div>
+    <div id="feedback" class="feedback muted"></div>
+    <div class="stats">
+      <div class="stat"><div class="big" id="score">0</div><div id="lblSolved">Решено</div></div>
+      <div class="stat"><div class="big" id="streak">0</div><div id="lblStreak">Серия</div></div>
+      <div class="stat"><div class="big" id="accuracy">0%</div><div id="lblAcc">Точность</div></div>
+      <div class="stat"><div class="big" id="speed">0.0</div><div id="lblSpeed">пример/мин</div></div>
+    </div>
+  </div>
+
+  <div class="footer" id="footer">Совет: Enter — ответ, Shift+Enter — пропуск</div>
+</div>
+
+<!-- Audio -->
+<audio id="correctSound" src="CORECT.mp3"></audio>
+<audio id="wrongSound" src="FOLSE.mp3"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
